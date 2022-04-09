@@ -184,4 +184,36 @@ console.log("Today we shall work on Address Book System using Node JS.");
 
 let contact_new = createValidatedContact("Saurabh","Yeggewar","Bhangaram talodhi","chandrapur","maharastra",458538,9801234567,"yeggewar@gmail.com");
 
+/**
+ * UC 5 : Find a person with name and delete it from array
+ * 
+ * @return: An array (addressbook after modification) containing contacts
+ * 
+ * @param: addressbook, first and last name of contact to be deleted
+ */
+ function deleteExistingContact(addressbook, first_name,last_name){
+    let range = addressbook.length;
+
+    // Loop through the contacts inside the address book
+    for(let i=0;i<range;i++){
+        
+        // Match for the contact using first and last name
+        if((addressbook[i].get("first_name") === first_name) && (addressbook[i].get("last_name") === last_name)){
+            // delete the contact details
+            delete addressbook[i];
+        }
+    }
+
+    // Returns an array after deletion of above contact
+    return addressbook;
+}
+let contact3 = createValidatedContact("Saurabh","Yeggewar","Bhangaram talodhi","chandrapur","maharastra",458538,9801234567,"yeggewar@gmail.com");
+let contact4 = createValidatedContact("Rohit","Dhoni","Middleton street","nagpur","maharastra",458538,9801234567,"kumar@gmail.com");
+// create an addressbook containing above contacts
+let addressBook = createAddressBook(contact3,contact4);
+// Delete the existing contact based on name
+let first_name = "Saurabh";
+let last_name = "Yeggewar";
+
+
 
